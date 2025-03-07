@@ -1,0 +1,5 @@
+# Track executables with Git LFS
+*.exe filter=lfs diff=lfs merge=lfs -text
+# You can add other large file types as needed
+# *.psd filter=lfs diff=lfs merge=lfs -text
+# *.dll filter=lfs diff=lfs merge=lfs -text
