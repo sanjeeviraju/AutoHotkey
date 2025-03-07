@@ -1,0 +1,39 @@
+# Compiled AutoHotkey scripts
+*.exe
+*.dll
+*.obj
+*.o
+*.a
+*.lib
+*.so
+*.dylib
+
+# Backup files
+*~
+*.bak
+*.backup
+*.old
+
+# Temporary files
+*.tmp
+temp/
+tmp/
+
+# Log files
+*.log
+logs/
+
+# Editor-specific files
+.vscode/
+.idea/
+*.sublime-*
+
+# OS-specific files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Personal config files that may contain sensitive data
+*config.personal.ahk
+*credentials*.ahk
+*secret*.ahk
