@@ -229,11 +229,11 @@ Return
 UltraBossKey(name, title, path, key) {
 	IfWinNotExist, %title%
     {
-		SplashTextOn, 250, 25, %name%, Press '%key%' to run %name%
+		SplashTextOn, 250, 25, System Directive Received , Press '%key%' to run %name%
 		Input, SplashInput, T1 L1
 		if (SplashInput = key)
 		{
-			SplashTextOn, 250, 25, %name%, Initaiting %name%... 
+			SplashTextOn, 250, 25, Operation underway, Initaiting %name%. Standby
 			SoundBeep(6000, 100, 5)
 			Run, "%path%"
 			WinWait, %title%,,3
@@ -248,7 +248,7 @@ UltraBossKey(name, title, path, key) {
 ;#If !WinActive("ahk_group game") ;add this to make an exeception during tevyat interactive map
 !y::UltraBossKey("YouTube Music"			,"ahk_class Chrome_WidgetWin_1 ahk_exe YouTube Music.exe"			, "shell:AppsFolder\com.github.th-ch.youtube-music"					,"y")
 !c::UltraBossKey("ChatGPT"					, "ChatGPT ahk_class Chrome_WidgetWin_1 ahk_exe msedge.exe"			, "Shell:AppsFolder\chatgpt.com-DFCB3CE4_ch69rtgtz055j!App"			,"c")
-` & Esc:: UltraBossKey("Genshin Impact"		, "Genshin Impact ahk_class UnityWndClass ahk_exe GenshinImpact.exe", "Z:\Games\Genshin Impact game\GenshinImpact.exe"					,"g")
+;` & Esc:: UltraBossKey("Genshin Impact"		, "Genshin Impact ahk_class UnityWndClass ahk_exe GenshinImpact.exe", "Z:\Games\Genshin Impact game\GenshinImpact.exe"					,"g")
 !t::UltraBossKey("Taiga"					, "ahk_class TaigaMainW ahk_exe Taiga.exe"							, "Z:\Applications\Taiga\Taiga.exe"									,"t")
 !w::UltraBossKey("WhatsApp"					, "WhatsApp ahk_class ApplicationFrameWindow"						, "shell:AppsFolder\5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App"		,"w")
 !s::UltraBossKey("Spotify"					, "ahk_class Chrome_WidgetWin_1 ahk_exe Spotify.exe"				, "shell:AppsFolder\Chromium.FLYOSQQLXGPZQ6UZLVC3DOCS6Y"			,"s")
@@ -350,7 +350,7 @@ Return
 ;#Include %A_ScriptDir%\Include\Hotkeys.BatteryAlarm.ahk
 #Include %A_ScriptDir%\Include\Hotkeys.GenshinImpact.ahk
 ;#Include %A_ScriptDir%\Include\Hotkeys.Spotify.ahk
-#Include %A_ScriptDir%\Include\Hotkeys.WSA.ahk
+;ś#Include %A_ScriptDir%\Include\Hotkeys.WSA.ahk
 #Include %A_ScriptDir%\Include\Hotkeys.YouTube_Music.ahk
 
 
@@ -553,7 +553,7 @@ Return
 
 
 ;-------------------------------------------------------------------------------
-;[F12] System Informer & [Win+C] Copilot
+;[F12] System Informer & [Win+C] Copilot & Nero
 ;-------------------------------------------------------------------------------
 F12::
 WinTitle := "ahk_class MainWindowClassName ahk_exe SystemInformer.exe"
@@ -568,7 +568,7 @@ If WinActive(WinTitle)
 }
 Return
 
-#!c::
+#c::
 winTitle := "Copilot - ahk_exe msedge.exe"
 If WinExist(winTitle) {
 	BossKey(winTitle)
@@ -577,7 +577,7 @@ If WinExist(winTitle) {
 }
 Return
 
-#c::
+#!c::
 IF !ProcessExist("talk.exe") {
     Run, z:\tools\Nero\talk.exe --ai gemini --se tts,  z:\tools\Nero,, talkPID
 }Else {
@@ -628,5 +628,28 @@ RunBingRewards(name, key, paths) {
 !m::
 Run, "Z:\Tools\AHK\Hotkeys\Include\Absolute.Volume.ahk"
 return
+;-----------------------------------------------------------------------------------------------------------------------
+
+#Persistent
+toggle := false  ; Initialize the toggle variable as false
+SetTimer, PressF, Off  ; Initially stop the timer
+
+; This hotkey toggles the functionality with Alt + F
+!f::
+toggle := !toggle  ; Toggle the state between true and false
+if (toggle) {
+    SetTimer, PressF, 1000  ; Start the timer to trigger every 1000 ms (1 second)
+} else {
+    SetTimer, PressF, Off  ; Stop the timer
+}
+return
+
+PressF:
+IfWinActive, ahk_exe GenshinImpact.exe  ; Only proceed if Genshin Impact is active
+{
+    Send, {F}  ; Simulate pressing the F key
+}
+return
+
 ;-----------------------------------------------------------------------------------------------------------------------
 ;the reward for good work is more work!
