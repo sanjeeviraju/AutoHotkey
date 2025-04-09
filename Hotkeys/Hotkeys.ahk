@@ -252,7 +252,7 @@ UltraBossKey(name, title, path, key) {
 !t::UltraBossKey("Taiga"					, "ahk_class TaigaMainW ahk_exe Taiga.exe"							, "Z:\Applications\Taiga\Taiga.exe"									,"t")
 !w::UltraBossKey("WhatsApp"					, "WhatsApp ahk_class ApplicationFrameWindow"						, "shell:AppsFolder\5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App"		,"w")
 !s::UltraBossKey("Spotify"					, "ahk_class Chrome_WidgetWin_1 ahk_exe Spotify.exe"				, "shell:AppsFolder\Chromium.FLYOSQQLXGPZQ6UZLVC3DOCS6Y"			,"s")
-!a::UltraBossKey("Apple Music"				, "ahk_class WinUIDesktopWin32WindowClass ahk_exe AppleMusic.exe"	, "shell:AppsFolder\AppleInc.AppleMusicWin_nzyj5cx40ttqa!App"		,"a")
+;!a::UltraBossKey("Apple Music"				, "ahk_class WinUIDesktopWin32WindowClass ahk_exe AppleMusic.exe"	, "shell:AppsFolder\AppleInc.AppleMusicWin_nzyj5cx40ttqa!App"		,"a")
 ;-----------------------------------------------------------------------------------------------------------------------
 ;[Ctrl+Alt+S] Save Hotkeys.ahkŚ
 ;-----------------------------------------------------------------------------------------------------------------------
